@@ -81,22 +81,33 @@ def cherche(poids:Array[Int] , capacite:Int) {
 //////////////////////////////////////////////////////////////////////////////
   chercheRec(0,Array.fill(len)(false))
 
-
   // Affiche la meilleure solution trouvee
   println
   print("Meilleure solution trouvee:")
   for (i <- 0 to meilleure.length-1)
     print(" "+poids(i)+":"+(if (meilleure(i)) "O" else "N")+";")
   println(" Valeur:"+valeurTotale(meilleure,poids)+" (la capacite etait "+capacite+")")
-  
-  
 
 
 ////////////////////////////////////////////////////////////////
 // TODO: Definissez ici la fonction recursive a proprement parler
 ////////////////////////////////////////////////////////////////
   def chercheRec(profondeur : Int, sac_courant : Array[Boolean]){
-    
+    if (profondeur ==  sac_courant.length) {
+      if (valeurTotale(sac_courant, poids) > valeurTotale(meilleure, poids)) {
+        meilleure = sac_courant;
+      }
+      return
+    }
+    else {
+      sac_pris = Array[Boolean].fill(len)(false)
+      dupplique(sac_courant,sac_pris)
+      mettreDansSac(sac_pris, profondeur)
+      if (valeurTotale(sac_pris, poids) <= capacite) {
+        chercheRec(profondeur+1, sac_pris)
+      }
+      chercheRec(profondeur+1, sac_courant)
+    }
   }
 
 } // Fin de la fonction cherche() principale
