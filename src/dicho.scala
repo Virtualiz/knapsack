@@ -1,7 +1,7 @@
 
 
 class dicho {
-  def dicho(tab: Array[Int], elm: Int) : Int = {
+  /*def dicho(tab: Array[Int], elm: Int) : Int = {
     var min = 0
     var max = tab.length -1 
     while( max-min > 1){
@@ -24,7 +24,7 @@ class dicho {
         
       }else return -1
     }
-  }
+  }*/
   
   def dichoRec(tab:Array[Int], elm:Int):Int = {
     def aux(tab:Array[Int], elm:Int,min:Int,max:Int):Int = {
