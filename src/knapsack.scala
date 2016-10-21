@@ -79,6 +79,7 @@ def cherche(poids:Array[Int] , capacite:Int) {
 //////////////////////////////////////////////////////////////////////////////
 // TODO: Placez ici l'appel recursif, avec les valeurs initiales des parametres
 //////////////////////////////////////////////////////////////////////////////
+  chercheRec(0,Array.fill(len)(false))
 
 
   // Affiche la meilleure solution trouvee
@@ -94,6 +95,9 @@ def cherche(poids:Array[Int] , capacite:Int) {
 ////////////////////////////////////////////////////////////////
 // TODO: Definissez ici la fonction recursive a proprement parler
 ////////////////////////////////////////////////////////////////
+  def chercheRec(profondeur : Int, sac_courant : Array[Boolean]){
+    
+  }
 
 } // Fin de la fonction cherche() principale
 
